@@ -31,7 +31,7 @@
 
 .settings {
     height: auto !important;
-    width: 20rem !important;
+    width: 22rem !important;
     flex-direction: column;
 }
 
@@ -54,3 +54,6 @@
     background-color: rgb(255, 255, 255);
 }
 
+.board-body {
+    display: grid;
+}
