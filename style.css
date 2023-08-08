@@ -33,15 +33,24 @@
     height: auto !important;
     width: 20rem !important;
     flex-direction: column;
-    padding: 2rem 1rem;
 }
 
 .size-range {
     flex-direction: column;
-    background-color: rgb(0, 36, 74);
+    background-color: #055160;;
+}
+
+.btn-settings span:hover {
+    background-color: rgba(151, 189, 222, 0.2);
+}
+
+#colorPickerIcon {
+    color: #055160;
 }
 
 .board {
     height: 35rem;
     width: 35rem;
+    background-color: rgb(255, 255, 255);
 }
+
