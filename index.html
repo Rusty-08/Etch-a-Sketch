@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.1/js/bootstrap.min.js" integrity="sha512-3dZ9wIrMMij8rOH7X3kLfXAzwtcHpuYpEgQg1OA4QAob1e81H8ntUQmQm3pBudqIoySO5j0tHN4ENzA6+n2r4w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.1/css/bootstrap.min.css" integrity="sha512-Z/def5z5u2aR89OuzYcxmDJ0Bnd5V1cKqBEbvLOiUNWdg9PQeXVvXLI90SE4QOHGlfLqUnDNVAYyZi8UwUTmWQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <title>Etch-a-Sketch</title>
+</head>
+<body>
+    <div class="main gap-5 position-relative">
+        <div class="exercise-topic position-absolute fs-3 fw-medium">Etch-a-Sketch</div>
+        <div class="settings gap-3 align-items-end card">
+            <div class="size-range w-100 px-2 py-3 rounded-2">
+                <input type="range" class="form-range" id="range" min="0" max="100" step="1">
+            </div>
+            <div class="bottom-settings d-flex w-100 gap-3">
+                <div class="size w-75 card">
+                    <p id="size" class="text-primary-emphasis fs-1 lh-1">50 x 50</p>
+                </div>
+                <div class="btn-settings justify-content-around w-25 h-25 card py-3 gap-2">
+                    <span class="material-symbols-outlined fs-3 p-2 btn rounded-circle">
+                        border_color
+                    </span>
+                    <span class="material-symbols-outlined fs-3 p-2 btn btn-outline-light text-info-emphasis rounded-circle">
+                        ink_eraser
+                    </span>
+                    <span class="material-symbols-outlined fs-3 p-2 btn btn-outline-light text-info-emphasis rounded-circle">
+                        autorenew
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="board bg-white" id="board">
+
+        </div>
+    </div>
+</body>
+</html>
