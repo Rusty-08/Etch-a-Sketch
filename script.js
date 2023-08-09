@@ -6,6 +6,7 @@ const colorPickerIcons = document.querySelectorAll(".material-symbols-outlined")
 const colorPickers = document.querySelectorAll("input[type='color']");
 const bgColorPicker = document.querySelector(".bg-color-picker");
 const penColorPicker = document.querySelector(".pen-color-picker");
+const pen = document.querySelector(".pen");
 const erasure = document.querySelector(".eraser");
 const clear = document.querySelector(".clear");
 const board = document.getElementById('board');
@@ -16,8 +17,22 @@ document.body.onmousedown = () => (mouseDown = true)
 document.body.onmouseup = () => (mouseDown = false)
 
 clear.onclick = () => reloadBoard()
-erasure.onclick = () => changeColor()
-penColorPicker.onclick = () => changeColor()
+
+penColorPicker.onclick = () => {
+    pen.classList.add('active')
+    erasure.classList.remove('active')
+    changeColor()
+}
+
+erasure.onclick = () => {
+    enableErasure()
+    changeColor();
+}
+
+const enableErasure = (e) => {
+    pen.classList.remove('active')
+    erasure.classList.toggle('active')
+}
 
 // display range input in settings
 const clearBoard = () => {
@@ -28,6 +43,8 @@ const reloadBoard = () => {
     inputGridSize();
     clearBoard();
     createGridElement();
+    erasure.classList.remove('active');
+    pen.classList.add('active');
 }
 
 // input number of grid items
@@ -64,14 +81,19 @@ document.addEventListener('DOMContentLoaded', () => {
 function changeColor(e) {
     e.preventDefault()
     if (e.type === 'mouseover' && !mouseDown) return
-    e.target.style.backgroundColor = penColorPicker.value
+
+    if (pen.classList.contains('active')) {
+        e.target.style.backgroundColor = penColorPicker.value
+    } else {
+        e.target.style.backgroundColor = 'transparent'
+    }
 }
 
 // color icons when clicked
 colorPickerIcons.forEach((icon, index) => {
     icon.addEventListener("click", () => {
         colorPickers[index].click();
-        colorPickers[index].style.border = 'transparent !important';
+        colorPickers[index].style.border = '1px solid transparent !important';
     });
 });
 
@@ -82,7 +104,7 @@ colorPickers.forEach((colorPicker, index) => {
 
         // icon color design
         colorPickerIcons[index].style.color = selectedColor;
-        colorPickerIcons[index].style.border = `solid 1px rgba(0, 0, 0, 0.1)`;
+        colorPickerIcons[index].style.border = `1px solid transparent !important`;
 
         // board color design
         bgColorPicker.addEventListener('input', () => {
@@ -93,6 +115,7 @@ colorPickers.forEach((colorPicker, index) => {
 
 // setup default grid templates and create grid elements
 const setupDefault = () => {
+    pen.classList.add('active');
     document.getElementById('size').textContent = `${defaultBoardSize} x ${defaultBoardSize}`;
 
     boardBody.style.gridTemplateRows = `repeat(${defaultBoardSize}, 1fr`;

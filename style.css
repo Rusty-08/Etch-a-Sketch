@@ -40,7 +40,7 @@
 }
 
 .form-range::-webkit-slider-thumb {
-    background-color: rgba(0, 36, 74, 1) !important;
+    background-color: rgba(0, 36, 74, 0.8) !important;
 }
 
 .form-range::-webkit-slider-runnable-track {
@@ -56,9 +56,13 @@
     background-color: rgba(89, 152, 219, 0.2);
 }
 
-#colorPickerIcon:nth-child(2) {
-    color: #000;
-    background-color: rgba(89, 152, 219, 0.2);
+.material-symbols-outlined.active {
+    background-color: rgba(89, 152, 219, 0.2) !important;
+    border: 1px solid transparent !important;
+}
+
+.material-symbols-outlined:active {
+    border: 1px solid transparent !important;
 }
 
 .material-symbols-outlined:nth-child(3) {
@@ -81,4 +85,14 @@
 
 .grid-items {
     background-color: transparent;
+}
+
+.eraser::before {
+    content: '';
+    width: 100%;
+    position: absolute;
+    height: 1px;
+    bottom: -0.6rem;
+    left: 0;
+    background-color: rgba(0, 36, 74, 0.2);
 }
