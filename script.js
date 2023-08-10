@@ -1,5 +1,6 @@
 // set default values
-let defaultBoardSize = 32;
+const DEFAULT_BOARD_SIZE = 32;
+let defaultBoardSize = DEFAULT_BOARD_SIZE;
 
 const rangeInput = document.getElementById('range');
 const colorPickerIcons = document.querySelectorAll(".material-symbols-outlined");
@@ -7,10 +8,12 @@ const colorPickers = document.querySelectorAll("input[type='color']");
 const bgColorPicker = document.querySelector(".bg-color-picker");
 const penColorPicker = document.querySelector(".pen-color-picker");
 const pen = document.querySelector(".pen");
+const rainbow = document.getElementById('rainbow');
 const erasure = document.querySelector(".eraser");
 const clear = document.querySelector(".clear");
 const board = document.getElementById('board');
 const boardBody = document.querySelector('.board-body');
+const date = document.getElementById('date');
 
 let mouseDown = false
 document.body.onmousedown = () => (mouseDown = true)
@@ -21,6 +24,7 @@ clear.onclick = () => reloadBoard()
 penColorPicker.onclick = () => {
     pen.classList.add('active')
     erasure.classList.remove('active')
+    rainbow.classList.remove('active')
     changeColor()
 }
 
@@ -29,9 +33,28 @@ erasure.onclick = () => {
     changeColor();
 }
 
-const enableErasure = (e) => {
+rainbow.onclick = () => {
+    enableRainbow();
+    changeColor();
+}
+
+const enableRainbow = () => {
     pen.classList.remove('active')
+    erasure.classList.remove('active')
+    rainbow.classList.toggle('active')
+}
+
+const enableErasure = () => {
+    pen.classList.remove('active')
+    rainbow.classList.remove('active')
     erasure.classList.toggle('active')
+}
+
+const rainborColor = () => {
+    const randomR = Math.floor(Math.random() * 256);
+    const randomG = Math.floor(Math.random() * 256);
+    const randomB = Math.floor(Math.random() * 256);
+    return `rgb(${randomR}, ${randomG}, ${randomB})`;
 }
 
 // display range input in settings
@@ -43,8 +66,9 @@ const reloadBoard = () => {
     inputGridSize();
     clearBoard();
     createGridElement();
-    erasure.classList.remove('active');
     pen.classList.add('active');
+    erasure.classList.remove('active');
+    rainbow.classList.remove('active')
 }
 
 // input number of grid items
@@ -84,8 +108,10 @@ function changeColor(e) {
 
     if (pen.classList.contains('active')) {
         e.target.style.backgroundColor = penColorPicker.value
-    } else {
+    } else if (erasure.classList.contains('active')) {
         e.target.style.backgroundColor = 'transparent'
+    } else {
+        e.target.style.backgroundColor = rainborColor();
     }
 }
 
@@ -123,6 +149,9 @@ const setupDefault = () => {
 
     createGridElement();
 }
+
+const currDate = new Date();
+date.textContent = currDate.getFullYear()
 
 // onload display
 window.onload = () => {

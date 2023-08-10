@@ -31,8 +31,9 @@
 
 .settings {
     height: auto !important;
-    width: 22rem !important;
+    width: 27rem !important;
     flex-direction: column;
+    border: none !important;
 }
 
 .size-range {
@@ -48,7 +49,7 @@
 }
 
 .btn-settings span:hover {
-    background-color: rgba(151, 189, 222, 0.2);
+    border: 1px solid rgba(89, 152, 219, 0.2);
 }
 
 #colorPickerIcon:first-child {
@@ -57,20 +58,24 @@
 }
 
 .material-symbols-outlined.active {
-    background-color: rgba(89, 152, 219, 0.2) !important;
-    border: 1px solid transparent !important;
+    border: 1px solid rgb(89, 152, 219) !important;
 }
 
 .material-symbols-outlined:active {
     border: 1px solid transparent !important;
 }
 
-.material-symbols-outlined:nth-child(3) {
-  font-variation-settings:
-  'FILL' 1,
-  'wght' 400,
-  'GRAD' 0,
-  'opsz' 48
+.material-symbols-outlined:nth-child(3), .material-symbols-outlined:nth-child(3):hover,
+.material-symbols-outlined:nth-child(3).active {
+    background-image: -webkit-gradient( linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22));
+    background-image: gradient( linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22));
+    color:transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+.material-symbols-outlined:nth-child(3):hover, .material-symbols-outlined:nth-child(3).active {
+    border: 1px solid rgba(89, 152, 219, 0.5) !important;
 }
 
 .board {
@@ -92,7 +97,38 @@
     width: 100%;
     position: absolute;
     height: 1px;
-    bottom: -0.6rem;
+    bottom: -0.8rem;
     left: 0;
-    background-color: rgba(0, 36, 74, 0.2);
+    background-color: rgba(0, 36, 74, 0.3);
+}
+
+.owner {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: rgba(89, 152, 219, 0.1);
+}
+
+#date {
+    margin-right: 1rem;
+    position: relative;
+}
+
+#date::before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 0.5px;
+    right: -0.7rem;
+    background-color: rgba(0, 36, 74, 0.5);
+}
+
+.owner span, .owner i {
+    font-size: 1rem;
+    color: rgb(0, 36, 74);
+}
+
+.owner a:hover span, .owner a:hover i {
+    color: rgb(40, 88, 138);
 }
