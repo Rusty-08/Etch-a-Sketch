@@ -12,17 +12,17 @@
     <title>Etch-a-Sketch</title>
 </head>
 <body>
-    <div class="main gap-4 position-relative">
+    <div class="main gap-lg-4 gap-md-4 gap-3 position-relative">
         <div class="exercise-topic position-absolute fs-3 fw-medium">Etch-a-Sketch</div>
-        <div class="settings gap-3 align-items-end card p-4 shadow-sm">
+        <div class="settings gap-lg-3 gap-md-3 gap-2 align-items-end card p-4 shadow-sm">
             <div class="size-range w-100 p-3 rounded-2 card">
                 <input type="range" class="form-range" id="range" min="0" max="64" step="1">
             </div>
-            <div class="bottom-settings d-flex w-100 gap-3">
-                <div class="size w-75 card">
-                    <p id="size" class="text-primary-emphasis fs-1 lh-1"></p>
+            <div class="bottom-settings d-flex w-100 gap-lg-3 gap-md-3 gap-2">
+                <div class="size w-100 card">
+                    <p id="size" class="text-primary-emphasis fs-1 mb-0"></p>
                 </div>
-                <div class="btn-settings justify-content-around w-25 h-25 card py-2 gap-2">
+                <div class="btn-settings justify-content-around card py-2 gap-2">
                     <span class="material-symbols-outlined fs-3 p-2 btn rounded-circle position-relative" id="colorPickerIcon">
                         format_color_fill
                         <input type="color" class="form-control form-control-color opacity-0 position-absolute top-0 bg-color-picker" id="color-picker" value="#ffffff">
@@ -37,7 +37,7 @@
                     <span class="material-symbols-outlined fs-3 p-2 btn btn-outline-light text-info-emphasis rounded-circle position-relative eraser">
                         ink_eraser
                     </span>
-                    <span class="material-symbols-outlined fs-3 p-2 btn btn-outline-light mt-3 text-info-emphasis rounded-circle clear">
+                    <span class="material-symbols-outlined fs-3 p-2 btn btn-outline-light mt-lg-3 m-0 text-info-emphasis rounded-circle clear">
                         autorenew
                     </span>
                 </div>
@@ -47,9 +47,9 @@
             <div class="board-body w-100 h-100"></div>
         </div>
         <div class="owner shadow-sm">
-            <i class="fa-regular fa-copyright"></i>
-            <span id="date"></span>
-            <a href="https://github.com/Rusty-08" class="text-decoration-none" target="_blank">
+            <i class="fa-regular fa-copyright opacity-75"></i>
+            <span id="date" class="opacity-75"></span>
+            <a href="https://github.com/Rusty-08/Etch-a-Sketch.git" class="text-decoration-none opacity-75" target="_blank">
                 <span>Rusty-08</span>
                 <i class="fa-brands fa-github"></i>
             </a>
